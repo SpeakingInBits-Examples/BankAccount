@@ -98,6 +98,6 @@ public class ValidatorTests
         double valueToTest = 50;
 
         // Assert => Act
-        Assert.Throws<ArgumentException>(() => validator.IsWithinRange(valueToTest, minBoundary, maxBoundary));
+        Assert.ThrowsExactly<ArgumentException>(() => validator.IsWithinRange(valueToTest, minBoundary, maxBoundary));
     }
 }
