@@ -18,11 +18,6 @@ namespace BankAccount
         /// <exception cref="ArgumentException">Thrown if min boundary is greater than max boundary</exception>
         public bool IsWithinRange(double value, double min, double max)
         {
-            if (min > max)
-            {
-                throw new ArgumentException("Min cannot be greater than the max");
-            }
-
             if (value >= min && value <= max)
             {
                 return true;
