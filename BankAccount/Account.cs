@@ -9,7 +9,7 @@ namespace BankAccount
     /// <summary>
     /// Represents an individual bank account
     /// </summary>
-    public class Account
+    public partial class Account
     {
         private string _accountNumber = string.Empty;
 
@@ -32,7 +32,7 @@ namespace BankAccount
         {
             if (string.IsNullOrWhiteSpace(accountNumber)) return false;
             // Format: 4 digits, dash, 5 letters (A-Z, case insensitive)
-            return System.Text.RegularExpressions.Regex.IsMatch(accountNumber, @"^\d{4}-[A-Za-z]{5}$");
+            return AccountNumberRegex().IsMatch(accountNumber);
         }
 
         /// <summary>
@@ -68,5 +68,8 @@ namespace BankAccount
             Balance -= amount;
             return Balance;
         }
+
+        [System.Text.RegularExpressions.GeneratedRegex(@"^\d{4}-[A-Za-z]{5}$")]
+        private static partial System.Text.RegularExpressions.Regex AccountNumberRegex();
     }
 }
